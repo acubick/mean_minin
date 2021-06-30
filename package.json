@@ -1,10 +1,11 @@
- {
+{
   "name": "mean_minin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "server": "nodemon index"
   },
   "keywords": [
     "express",
@@ -13,5 +14,11 @@
     "mongo"
   ],
   "author": "Vladilen Minin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.8"
+  }
 }
