@@ -5,20 +5,20 @@ const errorHandler = require('../utils/ErrorHandler')
 
 module.exports.getAll = async function (req, res){
   try {
-    const categoories = await Category.find({user: req.user.id})
-    res.status(200).json(categoories)
+    const categories = await Category.find({user: req.user.id})
+    await res.status(200).json(categories)
   } catch (err) {
-    errorHandler(res, err)
+    errorHandler(err, res)
   }
 }
 
 module.exports.getById = async function (req, res){
   try {
-    const categoory = await Category.findById(req.params.id)
-    res.status(200).json(categoory)
+    const category = await Category.findById(req.params.id)
+    await res.status(200).json(category)
     
   } catch (err) {
-    errorHandler(res, err)
+    errorHandler(err, res)
   }
 }
 
@@ -26,11 +26,11 @@ module.exports.remove = async function (req, res){
   try {
     await Category.remove({_id: req.params.id})
     await Position.remove({category: req.params.id})
-    res.status(200).json({
-                           message: 'Category has been removed.'
-                         })
+    await res.status(200).json({
+                                 message: 'Category has been removed.'
+                               })
   } catch (err) {
-    errorHandler(res, err)
+    errorHandler(err, res)
   }
 }
 
@@ -43,9 +43,9 @@ module.exports.create = async function (req, res){
                                 })
   try {
     await category.save()
-    res.status(201).json(category)
+    await res.status(201).json(category)
   } catch (err) {
-    errorHandler(res, err)
+    errorHandler(err, res)
   }
 }
 
@@ -62,10 +62,10 @@ module.exports.update = async function (req, res){
       {$set: updated},
       {new: true}
     )
-    res.status(200).json(category)
+    await res.status(200).json(category)
     
   } catch (err) {
-    errorHandler(res, err)
+    errorHandler(err, res)
   }
 }
 
