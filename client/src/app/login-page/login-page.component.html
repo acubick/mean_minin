@@ -17,8 +17,10 @@
         class="helper-text red-text"
         *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
       >
-       <span *ngIf="form.get('email')?.errors  &&  form.get('email')?.hasError('required')" >Email не должен быть пустым</span>
-       <span *ngIf="form.get('email')?.errors  &&  form.get('email')?.hasError('email')" >Введите корректный email адрес</span>
+       <span
+         *ngIf="form.get('email')?.errors  &&  form.get('email')?.hasError('required')">Email не должен быть пустым</span>
+       <span
+         *ngIf="form.get('email')?.errors  &&  form.get('email')?.hasError('email')">Введите корректный email адрес</span>
       </span>
 
     </div>
@@ -34,8 +36,13 @@
         class="helper-text red-text"
         *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
       >
-       <span *ngIf="form.get('password')?.errors  &&  form.get('password')?.hasError('required')" >Пароль не должен быть пустым</span>
-       <span *ngIf="form.get('password')?.errors  &&  form.get('password')?.hasError('minlength')" >Длина пароля должна быть не менее {{form.get('password')?.errors?.minlength.requiredLength}} символов, сейчас {{form.get('password')?.errors?.minlength.actualLength}}</span>
+       <span *ngIf="form.get('password')?.errors  &&  form.get('password')?.hasError('required')">
+         Пароль не должен быть пустым
+         </span>
+       <span *ngIf="form.get('password')?.errors  &&  form.get('password')?.hasError('minlength')">
+         Длина пароля должна быть не менее {{form.get('password')?.errors?.minlength.requiredLength}} символов,
+         сейчас {{form.get('password')?.errors?.minlength.actualLength}}
+       </span>
       </span>
     </div>
   </div>
