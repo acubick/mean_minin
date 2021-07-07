@@ -10,7 +10,7 @@ const positionRoutes  = require('./routes/position')
 const app             = express()
 const keys            = require('./config/keys')
 
-mongoose.connect(keys.mongoURI)
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true  } )
         .then(() => console.log('MongoDb connected.'))
         .catch(err => console.log(err))
 app.use(passport.initialize())
