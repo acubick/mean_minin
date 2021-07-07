@@ -25,7 +25,7 @@ module.exports.login = async function (req, res){
       res.status(401).json({message: 'Пароли не совпадают. Попробуйте снова.'})
     }
   } else{
-    // Пользователя нет, ошибка
+    //Пользователя нет, ошибка
     res.status(404).json({
                            message: 'Пользователь с таким email не найден.'
                          })
