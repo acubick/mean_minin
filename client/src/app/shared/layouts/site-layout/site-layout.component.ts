@@ -41,4 +41,7 @@ export class SiteLayoutComponent implements OnInit, AfterViewInit  {
   }
 
 
+  list(event: MouseEvent) {
+    console.log(event)
+  }
 }
