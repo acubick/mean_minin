@@ -24,6 +24,7 @@ export class CategoriesFormComponent implements OnInit {
   image: File | undefined
   imagePreview: string | ArrayBuffer | null | undefined
   isNew = true
+
   category: Category | undefined
 
   constructor(private route: ActivatedRoute,
