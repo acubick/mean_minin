@@ -25,14 +25,15 @@ export class CategoriesFormComponent implements OnInit {
   imagePreview: string | ArrayBuffer | null | undefined
   isNew = true
 
-  category: Category | undefined
+  category!: Category
+  id: string = ''
 
   constructor(private route: ActivatedRoute,
               private categoriesService: CategoriesService,
               private  router: Router) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     this.form = new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -54,6 +55,7 @@ export class CategoriesFormComponent implements OnInit {
         switchMap(
           (params: Params) => {
             if (params['id']) {
+              this.id = params['id']
               this.isNew = false
               return this.categoriesService.getById(params['id'])
             }
@@ -65,6 +67,7 @@ export class CategoriesFormComponent implements OnInit {
         category => {
           if (category) {
             this.category = category
+            // console.log(this.category)
             this.form.patchValue({
               name: category.name,
             })
@@ -95,11 +98,11 @@ export class CategoriesFormComponent implements OnInit {
         this.category = category
         MaterialService.toast('Изменения сохранены')
         this.form.enable()
-    },
-    error => {
+      },
+      error => {
         MaterialService.toast(error.error.message)
         this.form.enable()
-    })
+      })
   }
 
   triggerClick() {
@@ -121,13 +124,13 @@ export class CategoriesFormComponent implements OnInit {
     // @ts-ignore
     const decision = window.confirm(`Вы уверены что хотите удалить категорию ${this.category.name}?`)
 
-    if(decision){
-         // @ts-ignore
+    if (decision) {
+      // @ts-ignore
       this.categoriesService.delete(this.category._id)
         .subscribe(
-            (response: { message: string }) => MaterialService.toast(response.message),
-            (error: { error: { message: string } }) => MaterialService.toast(error.error.message),
-          ()=> this.router.navigate(['/categories'])
+          (response: { message: string }) => MaterialService.toast(response.message),
+          (error: { error: { message: string } }) => MaterialService.toast(error.error.message),
+          () => this.router.navigate(['/categories'])
         )
     }
   }
