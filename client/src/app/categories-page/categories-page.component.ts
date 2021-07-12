@@ -14,7 +14,8 @@ export class CategoriesPageComponent implements OnInit {
 
   categories$: Observable<Category[]> | undefined
 
-  constructor(private categoriesService: CategoriesService) {}
+  constructor(private categoriesService: CategoriesService) {
+  }
 
 
   ngOnInit(): void {

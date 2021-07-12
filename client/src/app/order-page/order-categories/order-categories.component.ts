@@ -18,7 +18,6 @@ export class OrderCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories$ = this.categoriesService.fetch()
-    console.log(this.categories$)
   }
 
 }
