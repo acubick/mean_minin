@@ -11,6 +11,7 @@ export class OrderService {
   public price = 0
 
 
+
   add(position: Position) {
 
 
@@ -44,6 +45,8 @@ export class OrderService {
   }
 
   clear() {
+    this.list = []
+    this.price = 0
   }
 
   private computePrice() {
