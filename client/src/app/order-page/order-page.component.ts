@@ -3,6 +3,7 @@ import {NavigationEnd, Router} from "@angular/router"
 
 import {MaterialInstance, MaterialService} from "../shared/classs/material.service"
 import {OrderService} from "./order.service"
+import {OrderPosition} from "../shared/interfaces"
 
 @Component({
   selector: 'app-order-page',
@@ -17,7 +18,7 @@ export class OrderPageComponent implements OnInit, OnDestroy, AfterViewInit {
   isRoot!: boolean
 
   constructor(private router: Router,
-              private orderService: OrderService) {
+              public order: OrderService) {
   }
 
   ngOnInit(): void {
@@ -57,5 +58,9 @@ export class OrderPageComponent implements OnInit, OnDestroy, AfterViewInit {
   submit() {
     // @ts-ignore
     this.modal.close()
+  }
+
+  removePosition(orderPosition: OrderPosition)  {
+     this.order.remove(orderPosition)
   }
 }

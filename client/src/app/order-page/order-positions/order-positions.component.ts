@@ -6,14 +6,15 @@ import {map, switchMap} from "rxjs/operators"
 import {Position} from "../../shared/interfaces"
 import {PositionsService} from "../../shared/services/positions.service"
 import {OrderService} from "../order.service"
+import {MaterialService} from "../../shared/classs/material.service"
 
 
 @Component({
   selector: 'app-ordeer-positions',
-  templateUrl: './ordeer-positions.component.html',
-  styleUrls: ['./ordeer-positions.component.scss']
+  templateUrl: './order-positions.component.html',
+  styleUrls: ['./order-positions.component.scss']
 })
-export class OrdeerPositionsComponent implements OnInit {
+export class OrderPositionsComponent implements OnInit {
 
   positions$!: Observable<Position[]>
 
@@ -42,7 +43,8 @@ export class OrdeerPositionsComponent implements OnInit {
   }
 
   addToOrder(position: Position) {
-    console.log(position, `position`)
+    // console.log(position, `position`)
+    MaterialService.toast(`Добавлено: x ${position.quantity} - ${position.name}`)
     this.order.add(position)
   }
 }
