@@ -14,6 +14,7 @@ const STEP = 2
 })
 export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
+
   @ViewChild('tooltip') tooltipRef!: ElementRef
   tooltip!: MaterialInstance
 
