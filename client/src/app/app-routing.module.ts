@@ -13,7 +13,7 @@ import {OrderPageComponent} from "./order-page/order-page.component"
 import {CategoriesPageComponent} from "./categories-page/categories-page.component"
 import {CategoriesFormComponent} from "./categories-page/categories-form/categories-form.component"
 import {OrderCategoriesComponent} from "./order-page/order-categories/order-categories.component"
-import {OrdeerPositionsComponent} from "./order-page/ordeer-positions/ordeer-positions.component"
+import {OrderPositionsComponent} from "./order-page/order-positions/order-positions.component"
 
 const routes: Routes = [
   {path: '', component: AuthLayoutComponent, children: [
@@ -27,7 +27,7 @@ const routes: Routes = [
       {path: 'history', component: HistoryPageComponent},
       {path: 'order', component: OrderPageComponent, children: [
           {path: '', component: OrderCategoriesComponent},
-          {path: ':id', component: OrdeerPositionsComponent}
+          {path: ':id', component: OrderPositionsComponent}
         ]},
       {path: 'categories', component:CategoriesPageComponent},
       {path: 'categories/new', component:CategoriesFormComponent},
