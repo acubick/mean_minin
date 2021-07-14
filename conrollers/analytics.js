@@ -54,20 +54,20 @@ module.exports.overview  = async function (req, res){
       yesterdayOrdersNumber - ordersPerDay
     ).toFixed(2)
     
-    res.status(200).json({
-                           gain: {
-                             percent: Math.abs(+gainPercent),
-                             compare: Math.abs(+compareGain),
-                             yesterday: +yesterdayGain,
-                             isHigher: +gainPercent > 0
-                           },
-                           orders: {
-                             percent: Math.abs(+ordersPercent),
-                             compare: Math.abs(+compareNumber),
-                             yesterday: +yesterdayOrdersNumber,
-                             isHigher: +ordersPercent > 0
-                           }
-                         })
+    await res.status(200).json({
+                                 gain: {
+                                   percent: Math.abs(+gainPercent),
+                                   compare: Math.abs(+compareGain),
+                                   yesterday: +yesterdayGain,
+                                   isHigher: +gainPercent > 0
+                                 },
+                                 orders: {
+                                   percent: Math.abs(+ordersPercent),
+                                   compare: Math.abs(+compareNumber),
+                                   yesterday: +yesterdayOrdersNumber,
+                                   isHigher: +ordersPercent > 0
+                                 }
+                               })
     
   } catch (e) {
     errorHandler(res, e)
