@@ -3,7 +3,7 @@ import {MaterialInstance, MaterialService} from "../shared/classs/material.servi
 
 import {OrdersService} from "../shared/services/orders.service"
 import {Subscription} from "rxjs"
-import {Order} from "../shared/interfaces"
+import {Filter, Order} from "../shared/interfaces"
 
 const STEP = 2
 
@@ -23,7 +23,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
   isFilterVisible = false
 
   orders: Order[] = []
-
+  filter: Filter = {}
 
   offset = 0
   limit = STEP
@@ -40,11 +40,14 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.fetch()
   }
 
-  private fetch() {
-    const params = {
-      offset: this.offset,
-      limit: this.limit
-    }
+ fetch() {
+
+      const params = Object.assign({}, this.filter, {
+        offset: this.offset,
+        limit: this.limit
+      })
+
+
     this.oSub = this.ordersService.fetch(params).subscribe(orders => {
       this.orders = this.orders.concat(orders)
       this.noMoreOrders = orders.length < STEP
@@ -71,5 +74,17 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.offset += STEP
     this.loading = true
     this.fetch()
+  }
+
+  applyFilter(filter: Filter) {
+    this.orders = []
+    this.offset = 0
+    this.filter = filter
+    this.reloading = true
+    this.fetch()
+  }
+
+  isFiltered(): boolean {
+    return  Object.keys(this.filter).length !== 0
   }
 }
