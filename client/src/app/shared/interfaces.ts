@@ -1,4 +1,3 @@
-
 export interface User {
   email: string,
   password: string
@@ -45,4 +44,15 @@ export interface Filter {
   order?: number
 }
 
+export interface OverviewPage {
+  orders: OverviewPageItem
+  gain: OverviewPageItem
+}
+
+export interface OverviewPageItem {
+  percent:number
+  compare:number
+  yesterday: number
+  isHigher:boolean
+}
 
