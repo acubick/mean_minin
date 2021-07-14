@@ -30,6 +30,7 @@ export class AnalyticsPageComponent implements AfterViewInit, OnDestroy {
     })
   }
 
+
   ngOnDestroy(): void {
     if (this.aSub) {
       this.aSub.unsubscribe()
