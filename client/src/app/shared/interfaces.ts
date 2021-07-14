@@ -1,3 +1,4 @@
+
 export interface User {
   email: string,
   password: string
@@ -37,3 +38,11 @@ export interface OrderPosition {
   quantity: number
   _id?: string
 }
+
+export interface Filter {
+  start?: Date
+  end?: Date
+  order?: number
+}
+
+
