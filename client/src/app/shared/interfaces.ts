@@ -50,9 +50,19 @@ export interface OverviewPage {
 }
 
 export interface OverviewPageItem {
-  percent:number
-  compare:number
+  percent: number
+  compare: number
   yesterday: number
-  isHigher:boolean
+  isHigher: boolean
 }
 
+export interface AnalyticsPage {
+  average: number
+  chart: AnalyticsChartItem[]
+}
+
+export interface AnalyticsChartItem {
+  gain: number
+  order: number
+  label: string
+}
