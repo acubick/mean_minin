@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy,  ViewChild} from '@angular/core'
+import {AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core'
 import {Subscription} from "rxjs"
-import { Chart, registerables } from 'chart.js'
+import {Chart, registerables} from 'chart.js'
 
 import {AnalyticsService} from "../shared/services/analytics.service"
 import {AnalyticsPage} from "../shared/interfaces"
@@ -17,7 +17,7 @@ import {AnalyticsPage} from "../shared/interfaces"
   templateUrl: './analytics-page.component.html',
   styleUrls: ['./analytics-page.component.scss']
 })
-export class AnalyticsPageComponent implements  AfterViewInit, OnDestroy {
+export class AnalyticsPageComponent implements AfterViewInit, OnDestroy {
 
 
   @ViewChild('gain') gainRef!: ElementRef

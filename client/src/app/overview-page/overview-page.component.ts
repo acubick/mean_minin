@@ -18,7 +18,7 @@ export class OverviewPageComponent implements OnInit, OnDestroy, AfterViewInit {
   tapTarget!: MaterialInstance
   data$!: Observable<OverviewPage>
 
-  yesterday: Date  = new Date()
+  yesterday: Date = new Date()
 
   constructor(private service: AnalyticsService) {
   }
@@ -30,7 +30,7 @@ export class OverviewPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   ngOnDestroy(): void {
-    if(this.data$){
+    if (this.data$) {
       // this.data$.unsubscribe()
     }
     // @ts-ignore
